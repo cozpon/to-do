@@ -14,13 +14,17 @@ module.exports = function(sequelize, DataType) {
     }
   },
   {
-    tableName : 'ToDos'
+    tableName : 'ToDo'
   });
 
   ToDo.associate = function(models){
+    ToDo.belongsTo(models.ToDoStatus, {
+      foreignKey : "is_done",
+      as : 'Status'
+    });
     ToDo.belongsTo(models.User, {
       foreignKey : "user_id",
-      as : 'User'
+      as : 'Creator'
     });
   };
 

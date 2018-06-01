@@ -43,14 +43,14 @@ router.post('/forgot', (req, res) => {
         else {
         console.log('Message sent: ' + info.response);
         console.log('info', 'An e-mail has been sent to ' + req.body.email + ' with further instructions.');
-        req.flash('info', 'An e-mail has been sent to ' + req.body.email + ' with further instructions.');
+        //req.flash('info', 'An e-mail has been sent to ' + req.body.email + ' with further instructions.');
         } // req.flash meant for express-flash
-      })
+      });
       return user.update({ // sends the token + expiration date to the user DB
         resetPasswordToken: token,
         resetPasswordExpires: Date.now() + 3600000 // 1 hour
-      })
-    })
+      });
+    });
   })
   .catch(err => {
     console.log(err);

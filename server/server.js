@@ -18,6 +18,14 @@ const routes = require('./routes');
 
 const app = express();
 
+app.use(function (req, res, next) { // allowing front end to talk to back end
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 app.use(compression()); // compress all responses
 app.use(express.static(path.join(__dirname, '..', 'public')));
 // enabling json body-parser and encoding
