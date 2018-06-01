@@ -1,5 +1,5 @@
 {
-  "name": "Upthere_",
+  "name": "upthere_",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -28,6 +28,20 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "connect-redis": "^3.3.3",
+    "crypto": "^1.0.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.2.0",
+    "nodemailer": "^4.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
     "postcss-custom-media": "^6.0.0",
     "postcss-custom-properties": "^7.0.0",
     "postcss-import": "^11.1.0",
@@ -38,6 +52,17 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
+    "sequelize": "^4.37.10",
     "suitcss": "^3.0.0"
-  }
+  },
+  "description": "## Getting Started:",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cozpon/to-do.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/cozpon/to-do/issues"
+  },
+  "homepage": "https://github.com/cozpon/to-do#readme"
 }

@@ -4,3 +4,5 @@
 # dependencies
 
 /node_modules
+server/config/mailer/
+server/config/
