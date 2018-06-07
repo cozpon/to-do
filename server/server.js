@@ -19,7 +19,7 @@ const routes = require('./routes');
 const app = express();
 
 app.use(function (req, res, next) { // allowing front end to talk to back end
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   res.setHeader('Access-Control-Allow-Credentials', true);
@@ -27,21 +27,20 @@ app.use(function (req, res, next) { // allowing front end to talk to back end
 });
 
 app.use(compression()); // compress all responses
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'src')));
 // enabling json body-parser and encoding
 app.use(bodyParser.urlencoded({ "extended" : false }));
 app.use(bodyParser.json());
 app.use(expressValidator());
 app.use(session({
   store: new redis(),
-  secret: "keyboard cat",
+  secret: "rickyrules",
   resave: false,
   saveInitialized: false
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use('/api', routes);
 
 app.listen(PORT, () => {

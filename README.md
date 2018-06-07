@@ -30,6 +30,7 @@ http://localhost:8080/
 
 ## Built with:
 - React.js
+- Redux
 - Webpack
 - Node.js
 - Express

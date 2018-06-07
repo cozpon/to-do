@@ -21,7 +21,7 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-        <h1>Welcome 2 hell!</h1><br/><br/>
+        <h1>Temporary To-Do List <br />(Will go away if you leave the page, unless you log-in)</h1><br/><br/>
       </div>
     );
   }

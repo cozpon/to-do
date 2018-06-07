@@ -120,6 +120,7 @@ router.get('/logout', (req, res) => {
 //REGISTER a user
 router.post('/register', (req, res) => {
   const { email, username } = req.body;
+  console.log(email);
   // need to check if user already exists first
   return User.findOne({
     where : { $or : [ { username : username }, { email : username } ] },
