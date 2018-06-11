@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToDo } from '../../actions/toDos';
+import { addTodo } from '../../actions/todos';
 
 //import Select from '../../components/Select';
 
-class NewCardForm extends Component {
+class NewTodoForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      todos: '',
       description: '',
       is_done: 1
     };
@@ -18,17 +19,15 @@ class NewCardForm extends Component {
   }
 
   handleSubmit(evt){
-    console.log(evt, 'handleSubmit');
     evt.preventDefault();
 
-    let newToDo = {
+    let newTodo = {
       description: this.state.description,  // when the client inserts/changes the description, it sets the state here
       is_done: 1,
       user_id: localStorage.userId
     };
-     console.log(newToDo, "New Card");
 
-    this.props.addToDo(newToDo);
+    this.props.addTodo(newTodo);
 
     this.setState({
       description: '',
@@ -59,24 +58,22 @@ class NewCardForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    // priorities: state.prioritiesList,     // setting state
-    // users: state.usersList,
-    // cards: state.cardsList
+    todos: state.todoList  // setting state
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToDo: (item) => {
-      dispatch(addToDo(item))
+    addTodo: (item) => {
+      dispatch(addTodo(item))
     }
   }
 }
 
-const ConnectedNewCardForm = connect(
+const ConnectedNewTodoForm = connect(
   mapStateToProps,
   mapDispatchToProps
-)(NewCardForm)
+)(NewTodoForm)
 
-export default ConnectedNewCardForm;
+export default ConnectedNewTodoForm;
 

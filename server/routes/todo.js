@@ -12,7 +12,10 @@ router.route('/')
   console.log("hello");
   return ToDo.findAll({
     where : { deletedAt : null },
-    include : [{model: User, as: 'Creator' }],
+    include : [
+      { model: User, as: 'Creator' },
+      { model: ToDoStatus, as: 'Status' }
+    ],
     order : [[ 'createdAt', 'DESC' ]]
   })
   .then(toDo => {

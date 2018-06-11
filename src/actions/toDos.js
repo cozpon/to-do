@@ -7,10 +7,11 @@ export const CREATE_TODO = 'CREATE_TODO';
 export const TOGGLE_STATUS = 'TOGGLE_STATUS';
 
 
-export const loadToDos = () => { // creating a GET action that calls onto the GET XHR request
+export const loadTodos = () => { // creating a GET action that calls onto the GET XHR request
   return (dispatch) => {
     return Axios.get(`${url}todo`)
     .then(items => {
+      console.log(items.data, "ACTIONS");
       dispatch({
         type: GET_TODOS,
         items: items.data
@@ -26,7 +27,7 @@ export const loadToDos = () => { // creating a GET action that calls onto the GE
 };
 
 
-export const addToDo = (newItem) => { // using the POST XHR request in the 'lib' folder
+export const addTodo = (newItem) => { // using the POST XHR request in the 'lib' folder
   return (dispatch) => {
     return Axios.post(`${url}todo`, newItem)
     .then(item => {

@@ -1,35 +1,55 @@
 import React, { Component } from 'react';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { loadCards } from '../../actions/cards';
 // import { getPriorities } from '../../actions/priorities';
-// import { loadUser } from '../../actions/users';
+import { loadTodos } from '../../actions/todos';
 
-// import NewToDoForm from '../NewToDoForm';
-// import CardList from '../CardList';
-
-import NewToDoForm from '../NewToDoForm';
+import TodoList from '../../components/TodoList';
+import NewTodoForm from '../NewTodoForm';
 
 class App extends Component{
-  // constructor(){
-  //   super();
-  //}
+  constructor(){
+    super();
+    this.state = {
+      todos: []
+    };
+  }
 
 
-  // componentDidMount(){
-  //  // this.props.loadUser();
-  // }
+  componentDidMount(){
+   this.props.loadTodos();
+  }
 
-  // A container does data fetching and then renders its corresponding sub-component.
+  //A container does data fetching and then renders its corresponding sub-component.
 
   render() {
     return (
       <div className="App">
-        <NewToDoForm />
+        <NewTodoForm />
         <h1>Things To-Do in the Futura</h1>
+        <TodoList todos={this.props.todos}/>
       </div>
     );
   }
 }
 
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    todos : state.todoList // makes it this.props.ToDos
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadTodos: () => {
+      dispatch(loadTodos());
+    }
+  }
+}
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

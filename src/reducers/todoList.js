@@ -1,30 +1,21 @@
-import { GET_TODOS, CREATE_TODO, TOGGLE_STATUS } from '../actions/toDos';
+import { GET_TODOS, CREATE_TODO, TOGGLE_STATUS } from '../actions/todos';
 
-const initialState = {  // our data is coming in as an array,
-  toDos: [],
-  // inProgress: []
-};
+const initialState = [];
 
-const toDosList = (state = initialState, action) => {
+const todoList = (state = initialState, action) => {
   switch (action.type){                   // using a SWITCH CASE allows for different action.types to come in
-    case GET_TODOS:                     // the GET_TODOS type comes in from ACTIONS folder toDos.js
-      return Object.assign({}, state, {   // it tells us how to treat the case, and what to do with the data from the database
-        toDos : [...action.toDos]
-      });
+    case GET_TODOS:
+    console.log(action.items);                     // the GET_TODOS type comes in from ACTIONS folder toDos.js
+      return [ ...action.items ];   // it tells us how to treat the case, and what to do with the data from the database
     case CREATE_TODO:
-      return Object.assign({}, state, { // Object.assign({}, state) etc. This is using the SPREAD operator to insert our
-        toDos : [...state.toDos, action.toDos]  // newly created card into the toDos STATE array.
-      });
-
+      return [ ...state, action.item ];
     case TOGGLE_STATUS:
-      return Object.assign({}, state, {
-        toDos : [...state.toDos, action.toDos]       // was thinking this could be used to filter STATUS for toDos later
-      });
+      return [...state.item, action.item];      // was thinking this could be used to filter STATUS for toDos later
 
     default:
       return state; // always have a default return state if action.type isn't recognized
   }
 };
 
-export default toDosList;
+export default todoList;
 
