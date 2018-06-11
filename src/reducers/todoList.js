@@ -9,9 +9,10 @@ const todoList = (state = initialState, action) => {
     case CREATE_TODO:
       return [ ...state, action.item ];
     case TOGGLE_STATUS:
-    console.log(state);
-      return state;  // was thinking this could be used to filter STATUS for toDos later
-
+      let index = state.findIndex((item) => {
+        return item.id === action.item.id;
+      });
+      return [ ...(state.slice(0, index)), action.item, ...(state.slice((index + 1), state.length)) ]; //otherwise get duplicate
     default:
       return state; // always have a default return state if action.type isn't recognized
   }

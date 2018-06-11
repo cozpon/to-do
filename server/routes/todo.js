@@ -63,13 +63,16 @@ router.route('/:id')
     return console.log("error");
     } else {
       toDo.update({
-        is_done : req.body.is_done
+          is_done : req.body.is_done
         })
         .then(newToDo => {
-        console.log('status changed');
-        return res.json({
-          success : true
-        });
+          return newToDo.reload({
+            include: [{ model: ToDoStatus, as: 'Status' }]
+          })
+        res.json(newToDo);
+      })
+      .then(newToDo => {
+        return res.json(newToDo);
       })
       .catch((err) => {
         console.log("error", err);
