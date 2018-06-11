@@ -124,6 +124,7 @@ export const editPassword = (user) => {
 };
 
 export const editEmail = (user) => {
+  console.log(user, "USER");
   return (dispatch) => {
     return Axios.put(`${editemail}/${user}`, user)
     .then((editedUser) => {

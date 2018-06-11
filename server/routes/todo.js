@@ -9,7 +9,6 @@ const router = express.Router();
 //GET ALL
 router.route('/')
 .get((req, res) => {
-  console.log("hello");
   return ToDo.findAll({
     where : { deletedAt : null },
     include : [
@@ -54,17 +53,17 @@ router.route('/')
 
 
 //edit ToDo status
-router.route('/:id', (req, res) => {
-  console.log(req.body, "ToDo status change");
+router.route('/:id')
+.put((req, res) => {
   return ToDo.findOne({
-    where : { id : req.body.id }
+    where : { id: req.body.id }
   })
   .then(toDo => {
     if(!toDo){
     return console.log("error");
-    }else{
-        toDo.update({
-        status : req.body.status
+    } else {
+      toDo.update({
+        is_done : req.body.is_done
         })
         .then(newToDo => {
         console.log('status changed');

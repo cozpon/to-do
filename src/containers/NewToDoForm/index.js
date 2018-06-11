@@ -20,14 +20,14 @@ class NewTodoForm extends Component {
 
   handleSubmit(evt){
     evt.preventDefault();
-
-    let newTodo = {
-      description: this.state.description,  // when the client inserts/changes the description, it sets the state here
-      is_done: 1,
-      user_id: localStorage.userId
-    };
-
+    if (this.state.description) { // Don't allow empty submissions
+      let newTodo = {
+        description: this.state.description,  // when the client inserts/changes the description, it sets the state here
+        is_done: 1,
+        user_id: localStorage.userId
+      };
     this.props.addTodo(newTodo);
+   }
 
     this.setState({
       description: '',

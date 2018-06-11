@@ -46,8 +46,9 @@ export const addTodo = (newItem) => { // using the POST XHR request in the 'lib'
 };
 
 export const toggleStatus = (item) => {
+  console.log(item);
   return (dispatch) => {
-    return Axios.put(`${url}todo/${item.id}`, item)
+    return Axios.put(`${url}todo/${item}`, item)
     .then(edited => {
       console.log(edited, "DATA)#@#");
       dispatch({
