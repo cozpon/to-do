@@ -15,9 +15,9 @@ router.route('/')
     include : [{model: User, as: 'Creator' }],
     order : [[ 'createdAt', 'DESC' ]]
   })
-  .then(todo => {
-    console.log('list of todos');
-    return res.json(todo);
+  .then(toDo => {
+    console.log('list of toDos');
+    return res.json(toDo);
   })
   .catch(err => {
     console.log(err);
@@ -36,17 +36,47 @@ router.route('/')
     is_done: details.is_done,
     user_id: details.user_id
   })
-  .then(todo => {
-    return todo.reload({
+  .then(toDo => {
+    return toDo.reload({
       include: [
         { model: ToDoStatus, as: 'Status' },
         { model: User, as: 'Creator' }
       ]
     })
-    res.json(todo);
+    res.json(toDo);
   })
-  .then(todo => {
-    return res.json(todo);
+  .then(toDo => {
+    return res.json(toDo);
+  });
+});
+
+
+//edit ToDo status
+router.route('/:id', (req, res) => {
+  console.log(req.body, "ToDo status change");
+  return ToDo.findOne({
+    where : { id : req.body.id }
+  })
+  .then(toDo => {
+    if(!toDo){
+    return console.log("error");
+    }else{
+        toDo.update({
+        status : req.body.status
+        })
+        .then(newToDo => {
+        console.log('status changed');
+        return res.json({
+          success : true
+        });
+      })
+      .catch((err) => {
+        console.log("error", err);
+        return res.json({
+          error : 'Oh no! Something went wrong!'
+        });
+      });
+    }
   });
 });
 

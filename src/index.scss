@@ -6,3 +6,22 @@
 h1 {
   font-color: grey;
 }
+
+#global-nav-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.nav-links{
+  display: flex;
+  font-size: 20px;
+  justify-content: space-around;
+  padding: 1.5vw;
+}
+
+.unauth-nav-links{
+  display: flex;
+  font-size: 20px;
+  justify-content: space-around;
+  padding: 1.5vw;
+}
