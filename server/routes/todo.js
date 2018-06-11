@@ -3,7 +3,7 @@ const db = require('../models');
 const isAuthenticated = require('../lib/authenticate');
 const User = db.User;
 const ToDo = db.ToDo;
-
+const ToDoStatus = db.ToDoStatus;
 const router = express.Router();
 
 //GET ALL
@@ -31,7 +31,6 @@ router.route('/')
   const details = req.body;
   console.log(details);
   return ToDo.create({
-    name: details.name,
     description: details.description,
     is_done: details.is_done,
     user_id: details.user_id

@@ -1,9 +1,5 @@
 module.exports = function(sequelize, DataType) {
   const ToDo = sequelize.define('ToDo', {
-    name : {
-      type : DataType.STRING,
-      allowNull : false
-    },
     description : {
       type : DataType.STRING,
       allowNull : false

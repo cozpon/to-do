@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 // import { loadCards } from '../../actions/cards';
 // import { getPriorities } from '../../actions/priorities';
-//import { loadUser } from '../../actions/users';
+// import { loadUser } from '../../actions/users';
 
-// import NewCardForm from '../NewCardForm';
+// import NewToDoForm from '../NewToDoForm';
 // import CardList from '../CardList';
 
+import NewToDoForm from '../NewToDoForm';
+
 class App extends Component{
-  constructor(){
-    super();
-  }
+  // constructor(){
+  //   super();
+  //}
 
 
-  componentDidMount(){
-   // this.props.loadUser();
-  }
+  // componentDidMount(){
+  //  // this.props.loadUser();
+  // }
 
   // A container does data fetching and then renders its corresponding sub-component.
 
   render() {
     return (
       <div className="App">
-        <h1>Temporary To-Do List
-        <br />(Will go away if you leave the page, unless you log-in)</h1><br/><br/>
+        <NewToDoForm />
+        <h1>Things To-Do in the Futura</h1>
       </div>
     );
   }
