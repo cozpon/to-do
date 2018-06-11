@@ -1,5 +1,5 @@
-# React To-Do list
-
+# Notes For The Futura
+## A React built To-Do list utilizing the Futura font
 ## Getting Started:
 
 ### Clone to your local computer:
@@ -36,3 +36,5 @@ http://localhost:8080/
 - Express
 - PostgreSQL
 - SUITcss
+
+Using Futura font so I could make the pun.
