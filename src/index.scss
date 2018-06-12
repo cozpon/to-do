@@ -5,37 +5,97 @@
   padding: 20px;
 }
 
-.nav-links{
+.nav-links {
+  font-family: Futura-Medium;
   display: flex;
-  font-size: 20px;
+  font-size: 30px;
   justify-content: space-around;
   padding: 1.5vw;
+
+
+}
+.nav-links a {
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  transition: all 0.6s;
+  text-decoration: none;
+  color: #38bea0;
+}
+.nav-links a:hover {
+  color: #c7415f;
 }
 
 .unauth-nav-links{
+  font-family: Futura-Medium;
   display: flex;
-  font-size: 20px;
+  font-size: 30px;
   justify-content: space-around;
   padding: 1.5vw;
+  a {
+    -webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    text-decoration: none;
+    color: #38bea0;
+  }
+  a:hover {
+   color: #c7415f;
+  }
 }
 
 h1 {
 font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", sans-serif;
 }
 
-.Todo {
-  font-family: CenturyGothic;
-}
+
 #description {
   font-size: 20px;
   font-family: Futura-Medium;
 }
 
+//----------------------------------MAIN VIEW
+
+#user-edit {
+  margin-top: 20%;
+}
+
+.user-welcome {
+  text-align: center;
+  font-family: Futura;
+  padding-bottom: 5%;
+}
+
+//------------------TODO ITEMS
+
+.todo-done {
+   display: flex;
+   align-items: right;
+   justify-content: center;
+   flex-flow: column wrap;
+   align-content: stretch;
+   width: 40%;
+   margin-left: 60%;
+   z-index: -1;
+   float: right;
+}
+
+.todo-undone {
+   display: flex;
+   align-items: left;
+   justify-content: flex-end;
+   flex-flow: column wrap;
+   align-content: stretch;
+   width: 40%;
+   margin-left: 10%;
+   float: left;
+}
 
 //------------------ DONE
 
 .Done {
-  float: right;
+  text-decoration: line-through;
   color: red;
   z-index: -1;
 }
@@ -49,7 +109,7 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
 
 .Undone {
   font-family: Futura;
-  z-index: 1;
+  width: 50%;
 }
 
 //-------- LOGIN FORM
@@ -108,7 +168,7 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
 }
 
 .login-btn:hover {
-  background-color: #666;
+  background-color: #c7415f;
 }
 
 .Input {
@@ -124,6 +184,16 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
   background: #ebebeb;
   border-radius: 27px;
   padding: 0 35px 0 35px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+}
+.Input:focus {
+  opacity: .5;
+  background: #d6e8ff;
+  outline: 0px;
 }
 .form-space {
   padding: 20px;
@@ -137,11 +207,19 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
 }
 
 .forgot-password {
+  font-family: Futura-Medium;
   margin: auto;
   font-size: 20px;
   text-align: center;
   padding: 20px;
-  text-decoration: none;
+  a {
+    transition: all .6s;
+    text-decoration: none;
+    color: #c7415f;
+  }
+  a:hover {
+   color: #555;
+  }
 }
 
 //-------REGISTER
@@ -175,7 +253,7 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
   -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
-.register-btn {
+.register-btn, .password-btn {
   margin: auto;
   display: -webkit-box;
   display: -webkit-flex;
@@ -205,8 +283,8 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
   font-family: Futura-Medium;
 }
 
-.register-btn:hover {
-  background-color: #666;
+.register-btn:hover, .password-btn:hover {
+  background-color: #38bea0;
 }
 
 .register-header {
@@ -219,4 +297,67 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
 .errors {
   color: red;
   text-align: center;
+}
+
+.password-change {
+  font-family: Futura;
+}
+
+
+//------- TODO
+
+.Todo-Input {
+  margin: auto;
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  font-family: Futura-Medium;
+  line-height: 1.2;
+  position: relative;
+  display: block;
+  width: 50%;
+  height: 55px;
+  background: #ebebeb;
+  border-radius: 27px;
+  padding: 0 35px 0 35px;
+  opacity: .7;
+  transition: all 0.7s;
+
+}
+.Todo-Input:focus {
+  opacity: .5;
+  background: #d6e8ff;
+  outline: 0px;
+}
+
+.new-todo-btn {
+  font-family: Futura-Medium;
+  margin: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 25%;
+  height: 50px;
+  background-color: #38bea0;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.new-todo-btn:hover {
+  background-color: #c7415f;
+  font-family: Futura;
 }

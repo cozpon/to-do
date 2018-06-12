@@ -81,42 +81,44 @@ class EditPassword extends Component {
     }
     if( localStorage.userId === this.props.match.params.id ){
       return(
-      <div id="login-container">
-        <h2>Change Password</h2>
+      <div className="login-container">
 
-        <div>
-          <center>
-             So u want 2 change ur password
-          </center>
-        </div>
 
       <div className="login-form">
-        <div className="form-header">
-        enter your current password
+        <div className="login-header">
+          <h2>Change Password</h2>
+        </div>
+        <div className="password-change">
+          <center>
+            So u want 2 change ur password
+          </center>
+        </div>
+        <div className="form-space">
         </div>
           <form className="inner-form-container" onSubmit={this.handlePasswordChange.bind(this)}>
             <input
+              className="Input"
               name="oldpassword"
               type="password"
               placeholder="current password"
               defaultValue={this.state.oldpassword}
               onChange={this.handleOldPasswordInput} />
-            <div className="form-header">
-            enter a new password in below
+            <div className="form-space">
             </div>
           <div>
             <input
+              className="Input"
               name="password"
               type="password"
               placeholder="enter new password"
               defaultValue={this.state.password}
               onChange={this.handlePasswordInput} />
           </div>
-          <div className="form-header">
-            re-enter your new password please
+          <div className="form-space">
           </div>
           <div>
             <input
+              className="Input"
               name="password"
               type="password"
               placeholder="re-enter new password"
@@ -124,7 +126,7 @@ class EditPassword extends Component {
               onChange={this.handlePasswordInput} />
           </div>
             <button
-              className="login-btn"
+              className="password-btn"
               type="submit"
               onClick={this.handlePasswordChange}>
               Change Ur Password

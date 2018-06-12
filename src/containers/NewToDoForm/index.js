@@ -47,9 +47,18 @@ class NewTodoForm extends Component {
       <div className="new-card-form">
         <form className="SubmitButton" onSubmit={this.handleSubmit}>
           <div className="input-form">
-            <input value={this.state.description} type="text" placeholder="To-Do in the Futura..." onChange={this.handleDescriptionInput}/>
+            <input
+              value={this.state.description}
+              className="Todo-Input"
+              type="text"
+              placeholder="To-Do in the Futura..."
+              onChange={this.handleDescriptionInput}
+            />
           </div>
-          <input type="submit" value="Submit Item"/>
+          <input
+            className="new-todo-btn"
+            type="submit"
+            value="Submit Item"/>
         </form>
       </div>
     );

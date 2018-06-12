@@ -49,8 +49,9 @@ class User extends Component {
     if( this.props.match && localStorage.userId === this.props.match.params.id ){
       return(
         <div className="user-view">
-          <div id="user-welcome">
-            Hello, { localStorage.username }!
+          <div className="user-welcome">
+            Hello, { localStorage.username }!<br />
+            Why don't you add some new things to your To-Do list!
           </div>
           <ToastContainer />
           <div className="Todo">

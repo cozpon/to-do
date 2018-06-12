@@ -58,41 +58,44 @@ class EditEmail extends Component {
     }
     if( localStorage.userId === this.props.match.params.id ){
       return(
-      <div id="login-container">
-        <div>
-          <center>
-            <h2>Change Email Address</h2>
-          </center>
-        </div>
+      <div className="login-container">
 
       <div className="login-form">
         <div className="form-header">
-        enter your current password
+          <h2>Change Email Address</h2>
+        </div>
+        <div className="password-change">
+          <center>
+            So u want 2 change ur email addy
+          </center>
+        </div>
+        <div className="form-space">
         </div>
         <form className="inner-form-container" onSubmit={this.handleEmailChange.bind(this)}>
           <input
+            className="Input"
             name="oldpassword"
             type="password"
             placeholder="current password"
             defaultValue={this.state.oldpassword}
             onChange={this.handleOldPasswordInput} />
 
-          <div className="form-header">
-            just enter a new email addy in below
-          </div>
+        <div className="form-space">
+        </div>
           <div>
             <input
+              className="Input"
               name="email"
               type="text"
               placeholder="enter new email addy"
               defaultValue={this.state.email}
               onChange={this.handleEmailInput} />
           </div>
-          <div className="form-header">
-            re-enter your new email addy please
-          </div>
+        <div className="form-space">
+        </div>
           <div>
             <input
+              className="Input"
               name="email"
               type="text"
               placeholder="re-enter new email addy"
@@ -100,7 +103,7 @@ class EditEmail extends Component {
               onChange={this.handleEmailInput} />
           </div>
             <button
-              className="login-btn"
+              className="password-btn"
               type="submit"
               onClick={this.handleEmailChange}>
               Change Ur Email
