@@ -107,12 +107,11 @@ class Register extends Component {
 
     return(
       <div className="register-container">
-
-        <p className="errors">{this.state.error}</p>
         <div className="register-form">
           <div className="register-header">
             <h2>Register</h2>
           </div>
+          <p className="errors">{this.state.error}</p>
           <form
             className="inner-form-container"
             onSubmit={this.handleSubmit.bind(this)}>
