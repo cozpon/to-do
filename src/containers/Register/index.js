@@ -106,10 +106,13 @@ class Register extends Component {
     }
 
     return(
-      <div id="register-container">
-        <h2>Register</h2>
+      <div className="register-container">
+
         <p className="errors">{this.state.error}</p>
         <div className="register-form">
+          <div className="register-header">
+            <h2>Register</h2>
+          </div>
           <form
             className="inner-form-container"
             onSubmit={this.handleSubmit.bind(this)}>
@@ -117,8 +120,9 @@ class Register extends Component {
             EMAIL
             <br/>
           </div>
-          <div>
+          <div className="form-space">
           <input
+            className="Input"
             name="email"
             defaultValue={this.state.email}
             onChange={this.handleEmailChange}
@@ -130,8 +134,9 @@ class Register extends Component {
           <div className="form-header">
             USERNAME<br/>(3-20 characters. No spaces or special characters)
           </div>
-          <div>
+          <div className="form-space">
             <input
+              className="Input"
               name="username"
               defaultValue={this.state.username}
               onChange={this.handleUsernameChange}
@@ -145,6 +150,7 @@ class Register extends Component {
           </div>
           <div>
           <input
+            className="Input"
             name="password"
             defaultValue={this.state.password}
             onChange={this.handlePasswordChange}

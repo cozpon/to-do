@@ -90,6 +90,7 @@ h1 {
   background-color: #666; }
 
 .Input {
+  margin: auto;
   text-align: center;
   font-size: 15px;
   color: #1b3815;
@@ -117,3 +118,68 @@ h1 {
   text-align: center;
   padding: 20px;
   text-decoration: none; }
+
+.register-container {
+  width: 100%;
+  min-height: 80vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+  background-color: #fff; }
+
+.register-form {
+  padding: 20px;
+  width: 500px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1); }
+
+.register-btn {
+  margin: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 80%;
+  height: 50px;
+  background-color: #c7415f;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+
+.form-header {
+  text-align: center;
+  font-family: Futura-Medium; }
+
+.register-btn:hover {
+  background-color: #666; }
+
+.register-header {
+  font-size: 30px;
+  color: #666;
+  line-height: 1.2;
+  text-align: center; }
