@@ -1,57 +1,26 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import { loadCards } from '../../actions/cards';
-// import { getPriorities } from '../../actions/priorities';
-import { loadTodos } from '../../actions/todos';
-
-import TodoList from '../TodoList';
-import NewTodoForm from '../NewTodoForm';
 
 class App extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      todos: [],
-    };
-  }
-  // shouldComponentUpdate(){
-  //  this.props.loadTodos();
-  // }
-
-  componentDidMount(){
-   this.props.loadTodos();
-  }
-
   //A container does data fetching and then renders its corresponding sub-component.
 
   render() {
+    if(localStorage.loggedIn){
     return (
       <div className="App">
-        <NewTodoForm />
-        <h1>Things To-Do in the Futura</h1>
-          <TodoList todos={this.props.todos} />
+        <h1>You're logged in Daddio, check out your TODOS on your userpage!</h1>
       </div>
     );
-  }
-}
-
-
-const mapStateToProps = (state) => {
-  return {
-    todos : state.todoList // makes it this.props.ToDos
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadTodos: () => {
-      dispatch(loadTodos());
+    } else {
+    return(
+      <div className="App">
+        <h1>You gotta log in to create a To-Do list</h1>
+        If you're just visiting, try using this login info: username, "Ricky", password "Password"
+      </div>
+      );
     }
   }
 }
 
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+
+export default App;

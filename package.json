@@ -51,6 +51,7 @@
     "react-router-dom": "^4.2.2",
     "react-sizeme": "^2.3.6",
     "react-stack-grid": "^0.7.0",
+    "react-toastify": "^4.1.0",
     "react-viewport-slider": "^1.0.0",
     "react-youtube": "^7.5.0",
     "redux": "^3.7.2",
@@ -71,7 +72,6 @@
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
-
   "description": "portfolio page for Ricky Peters",
   "main": "index.js",
   "devDependencies": {

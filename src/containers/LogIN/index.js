@@ -72,34 +72,28 @@ class Login extends Component {
       localStorage.clear();
     }
     return(
-      <div id="login-container">
-        <h2>Login</h2>
+      <div className="login-container">
 
-        <div>
-          <center>
-             login 2 view ur shade account
-          </center>
-        </div>
+
         <ToastContainer />
         <div className="login-form">
+          <div className="login-header">
+            <h2>Login</h2>
+          </div>
           <form className="inner-form-container" onSubmit={this.handleSubmit.bind(this)}>
-            <div className="form-header">
-            Login with either USERNAME or EMAIL
-            </div>
-         <div>
+          <div className="form-space">
             <input
+              className="Input"
               name="username"
               type="text"
               placeholder="username"
               defaultValue={this.state.username}
               onChange={this.handleUsernameInput}/>
-            </div>
+          </div>
 
-            <div className="form-header">
-            PASSWORD
-            </div>
-            <div>
+            <div className="form-space">
             <input
+              className="Input"
               name="password"
               type="password"
               placeholder="password"
@@ -114,9 +108,9 @@ class Login extends Component {
               Login
             </button>
           </form>
-        </div>
-        <div className="forgot-password">
-        <Link to="/forgot">Forgot Password?</Link>
+          <div className="forgot-password">
+          <Link to="/forgot">Forgot Password?</Link>
+          </div>
         </div>
       </div>
     );

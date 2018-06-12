@@ -45,7 +45,7 @@ class NewTodoForm extends Component {
   render() {
     return (
       <div className="new-card-form">
-        <form onSubmit={this.handleSubmit}>
+        <form className="SubmitButton" onSubmit={this.handleSubmit}>
           <div className="input-form">
             <input value={this.state.description} type="text" placeholder="To-Do in the Futura..." onChange={this.handleDescriptionInput}/>
           </div>

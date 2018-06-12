@@ -45,15 +45,29 @@ class TodoList extends Component {
         {
           this.props.todos
             .map((todo) => {
+              if(todo.is_done === 1){ // if complete, don't show
               return (
-                <Todo
-                  description={todo.description}
-                  status={todo.Status.done}
-                  creator={todo.creator}
-                  key={todo.id}
-                  id={todo.id}
-                />
+                <div key={todo.id} className="Undone">
+                  <Todo
+                    description={todo.description}
+                    status={todo.Status.done}
+                    creator={todo.creator}
+                    id={todo.id}
+                  />
+                </div>
               );
+            } else {
+              return (
+                <div key={todo.id} className="Done">
+                  <Todo
+                    description={todo.description}
+                    status={todo.Status.done}
+                    creator={todo.creator}
+                    id={todo.id}
+                  />
+                </div>
+              );
+            }
           })
         }
          </form>

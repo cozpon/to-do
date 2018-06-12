@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
-//import { loadMessages } from '../../actions/message.actions';
-//import MessageList from '../../components/messageList.components';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { loadTodos } from '../../actions/todos';
+
+import TodoList from '../TodoList';
+import NewTodoForm from '../NewTodoForm';
 
 class User extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //messages: [],
+      todos: [],
       data: '',
       blur: false
     };
@@ -17,7 +21,7 @@ class User extends Component {
 
   componentDidMount(){
 
-    //this.props.loadMessages();
+    this.props.loadTodos();
 
     if( localStorage.emailChange ) {
       toast.success(`Success! Email Changed!`,
@@ -49,13 +53,19 @@ class User extends Component {
             Hello, { localStorage.username }!
           </div>
           <ToastContainer />
+          <div className="Todo">
+            <NewTodoForm />
+              <h1>Things To-Do in the Futura</h1>
+            <TodoList todos={this.props.todos} />
+          </div>
+
           <div id="user-edit">
             want 2 edit ur profile, daddio? <br /> <br />
                <Link to={`/editpass/${localStorage.userId}`}>change ur Password</Link>
                <br />
-               -_ or _-
+               *-* or *-*
                <br />
-               <Link to={`/editemail/${localStorage.userId}`}>change ur email</Link>
+               <Link to={`/editemail/${localStorage.userId}`}>change ur Email</Link>
           </div>
         </div>
       );
@@ -71,15 +81,15 @@ class User extends Component {
 const mapStateToProps = state => {
   return {
     singleUser : state.singleUser,
-    //items : state.itemList,
+    todos : state.todoList // makes it this.props.ToDos
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    //loadMessages: () => {
-      //dispatch(loadMessages());
-    //}
+    loadTodos: () => {
+      dispatch(loadTodos());
+    }
   }
 }
 
