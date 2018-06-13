@@ -54,19 +54,18 @@ class User extends Component {
             Hello, { localStorage.username }!<br />
           </h2>
             <div id="user-edit">
-              Want 2 Edit Your Profile?? <br />
-                 <Link to={`/editpass/${localStorage.userId}`}>Change your Password</Link>
-                 <br />
-                 - or -
-                 <br />
-                 <Link to={`/editemail/${localStorage.userId}`}>Change your Email</Link>
+              <Link to={`/editpass/${localStorage.userId}`}>Change your Password</Link>
+              <br />
+              - or -
+              <br />
+              <Link to={`/editemail/${localStorage.userId}`}>Change your Email</Link>
             </div>
           </div>
           <ToastContainer />
           <div className="Todo">
             <NewTodoForm />
             <center>
-              <h1>Things To-Do in the Futura</h1>
+              <h1>Things To-Do in the Futura...</h1>
             </center>
             <TodoList todos={this.props.todos} />
           </div>

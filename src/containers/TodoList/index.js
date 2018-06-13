@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Todo from '../../components/Todo';
 import { connect } from 'react-redux';
-import { loadTodos, toggleStatus } from '../../actions/todos';
+import { loadTodos, toggleStatus, deleteTodo } from '../../actions/todos';
 
 class TodoList extends Component {
   constructor(props){
@@ -13,6 +13,7 @@ class TodoList extends Component {
     };
   this.handleSubmit = this.handleSubmit.bind(this);
   this.handleStatusChange = this.handleStatusChange.bind(this);
+  this.handleDeleteChange = this.handleDeleteChange.bind(this);
   }
 
   handleSubmit(evt) {
@@ -38,6 +39,10 @@ class TodoList extends Component {
     });
   }
 
+  handleDeleteChange(evt) {
+    this.props.deleteTodo(evt.target.id);
+  }
+
   render() {
     return (
       <div className="Todo-Grid">
@@ -58,7 +63,7 @@ class TodoList extends Component {
                 </div>
               </div>
               );
-            } else {
+            } else if(!todo.deletedAt) {
               return (
               <div key={todo.id} className="todo-done">
                 <div key={todo.id} className="Done">
@@ -68,6 +73,7 @@ class TodoList extends Component {
                     creator={todo.creator}
                     id={todo.id}
                   />
+                <button type="button" id={ todo.id } onClick={this.handleDeleteChange}> Delete Me </button>
                 </div>
               </div>
               );
@@ -93,6 +99,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     toggleStatus: (item) => {
       dispatch(toggleStatus(item));
+    },
+    deleteTodo: (item) => {
+      dispatch(deleteTodo(item));
     }
   }
 }

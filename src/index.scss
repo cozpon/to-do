@@ -127,7 +127,7 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
 
 }
 
-.Done input {
+.Done .completed-btn .delete-btn {
   display: none;
 }
 
@@ -136,6 +136,10 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
 
 .Undone {
   font-family: Futura;
+}
+
+.Undone .delete-btn {
+  display: none;
 }
 
 //-------- LOGIN FORM

@@ -1,4 +1,4 @@
-import { GET_TODOS, CREATE_TODO, TOGGLE_STATUS } from '../actions/todos';
+import { GET_TODOS, CREATE_TODO, TOGGLE_STATUS, DELETE_TODO } from '../actions/todos';
 
 const initialState = [];
 
@@ -13,6 +13,11 @@ const todoList = (state = initialState, action) => {
         return item.id === action.item.id;
       });
       return [ ...(state.slice(0, index)), action.item, ...(state.slice((index + 1), state.length)) ]; //otherwise get duplicate
+    case DELETE_TODO:
+      let deleteRemoved = state.filter((item) => {
+        return item.id !== action.item.id;
+      });
+      return [ ...deleteRemoved ];
     default:
       return state; // always have a default return state if action.type isn't recognized
   }

@@ -5,13 +5,13 @@ export const ERROR = 'ERROR';
 export const GET_TODOS = 'GET_TODOS';
 export const CREATE_TODO = 'CREATE_TODO';
 export const TOGGLE_STATUS = 'TOGGLE_STATUS';
+export const DELETE_TODO = 'DELETE_TODO';
 
 
 export const loadTodos = () => { // creating a GET action that calls onto the GET XHR request
   return (dispatch) => {
     return Axios.get(`${url}todo`)
     .then(items => {
-      console.log(items.data, "ACTIONS");
       dispatch({
         type: GET_TODOS,
         items: items.data
@@ -50,7 +50,6 @@ export const toggleStatus = (item) => {
   return (dispatch) => {
     return Axios.put(`${url}todo/${item}`, item)
     .then(edited => {
-      console.log(edited, "DATA)#@#");
       dispatch({
         type: TOGGLE_STATUS,
         item: edited.data
@@ -59,14 +58,14 @@ export const toggleStatus = (item) => {
   };
 };
 
-// export const toggleStatus = (id, status) => {
-//   return function(dispatch){
-//     return changeStatus(id).then(card => {
-//       dispatch({
-//         type: TOGGLE_STATUS,
-//         id : card.id,
-//         status : card.status
-//       });
-//     });
-//   };
-// };
+export const deleteTodo = (item) => {
+  return (dispatch) => {
+    return Axios.delete(`${url}todo/${item}`, item)
+    .then(item => {
+      dispatch({
+        type: DELETE_TODO,
+        item: item.data
+      });
+    });
+  };
+};

@@ -18,7 +18,6 @@ router.route('/')
     order : [[ 'is_done', 'ASC' ]]
   })
   .then(toDo => {
-    console.log('list of toDos');
     return res.json(toDo);
   })
   .catch(err => {
@@ -31,7 +30,6 @@ router.route('/')
 
 .post((req, res) => {
   const details = req.body;
-  console.log(details);
   return ToDo.create({
     description: details.description,
     is_done: details.is_done,
@@ -83,5 +81,48 @@ router.route('/:id')
     }
   });
 });
+
+// router.route('/delete/:id')
+// .put((req, res) => {
+//   return ToDo.findOne({
+//     where : { id: req.params.id }
+//   })
+//   .then(item => {
+//     item.update({
+//       deletedAt : Date.now()
+//     })
+//     .then(item => {
+//       return item.reload({
+//             include: [{ model: ToDoStatus, as: 'Status' }]
+//           })
+//       res.json(item);
+//     })
+//     .then(item => {
+//       return res.json(item);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+//   });
+// });
+
+router.route('/:id')
+.delete((req, res) => {
+  let id = req.params.id;
+  return ToDo.findById(id)
+  .then(item => {
+    return item.update({deletedAt : Date.now()}, {
+      returning: true,
+      plain: true
+    })
+    .then(item => {
+      return res.json(item);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+});
+
 
 module.exports = router;
