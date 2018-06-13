@@ -51,7 +51,7 @@ class NewTodoForm extends Component {
               value={this.state.description}
               className="Todo-Input"
               type="text"
-              placeholder="To-Do in the Futura..."
+              placeholder="What do you have To-Do?"
               onChange={this.handleDescriptionInput}
             />
           </div>

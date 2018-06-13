@@ -45,13 +45,14 @@ class Logout extends Component {
     }
     return (
       <div id="logout-container">
-
+        <center>
         <h2>See you later, alligator!</h2>
-
+        </center>
         <form className="logout-form" onSubmit={this.handleSubmit.bind(this)}>
 
           <button
-            className="logout-btn"
+            className="register-btn"
+            style={{width:'20%'}}
             type="submit"
             onClick={this.handleSubmit}>
             Log Me Out!

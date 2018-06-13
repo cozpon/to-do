@@ -50,23 +50,25 @@ class User extends Component {
       return(
         <div className="user-view">
           <div className="user-welcome">
+          <h2>
             Hello, { localStorage.username }!<br />
-            Why don't you add some new things to your To-Do list!
+          </h2>
+            <div id="user-edit">
+              Want 2 Edit Your Profile?? <br />
+                 <Link to={`/editpass/${localStorage.userId}`}>Change your Password</Link>
+                 <br />
+                 - or -
+                 <br />
+                 <Link to={`/editemail/${localStorage.userId}`}>Change your Email</Link>
+            </div>
           </div>
           <ToastContainer />
           <div className="Todo">
             <NewTodoForm />
+            <center>
               <h1>Things To-Do in the Futura</h1>
+            </center>
             <TodoList todos={this.props.todos} />
-          </div>
-
-          <div id="user-edit">
-            want 2 edit ur profile, daddio? <br /> <br />
-               <Link to={`/editpass/${localStorage.userId}`}>change ur Password</Link>
-               <br />
-               *-* or *-*
-               <br />
-               <Link to={`/editemail/${localStorage.userId}`}>change ur Email</Link>
           </div>
         </div>
       );
