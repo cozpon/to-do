@@ -15,7 +15,7 @@ router.route('/')
       { model: User, as: 'Creator' },
       { model: ToDoStatus, as: 'Status' }
     ],
-    order : [[ 'createdAt', 'DESC' ]]
+    order : [[ 'is_done', 'ASC' ]]
   })
   .then(toDo => {
     console.log('list of toDos');

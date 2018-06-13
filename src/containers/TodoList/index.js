@@ -40,14 +40,14 @@ class TodoList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Todo-Grid">
         <form onClick={this.handleStatusChange} onSubmit={this.handleSubmit}>
         {
           this.props.todos
             .map((todo) => {
               if(todo.is_done === 1){ // if complete, don't show
               return (
-              <div className="todo-undone">
+              <div key={todo.id} className="todo-undone">
                 <div key={todo.id} className="Undone">
                   <Todo
                     description={todo.description}
@@ -60,7 +60,7 @@ class TodoList extends Component {
               );
             } else {
               return (
-              <div className="todo-done">
+              <div key={todo.id} className="todo-done">
                 <div key={todo.id} className="Done">
                   <Todo
                     description={todo.description}
