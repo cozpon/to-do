@@ -15,11 +15,15 @@ class App extends Component{
     } else {
     return(
       <div className="App">
-      <center>
-        <h1>You gotta log in to create a To-Do list</h1>
-        If you're just visiting, try using this login info: <br/><br/> username: <b>Ricky</b> <br/>password: <b>Password</b>
-      </center>
+        <center>
+          <h1>You gotta log in to create a To-Do list</h1>
+          If you're just visiting, try using this login info: <br/><br/> username: <b>Ricky</b> <br/>password: <b>Password</b>
+        </center>
+        <div className="Gif">
+          <img src="./images/To-Do.gif" />
+        </div>
       </div>
+
       );
     }
   }
