@@ -220,7 +220,7 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
   transition: all 0.4s;
 
 }
-.Input:focus {
+.Input:focus, {
   opacity: .5;
   background: #d6e8ff;
   outline: 0px;
@@ -315,6 +315,10 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
 
 .register-btn:hover, .password-btn:hover {
   background-color: #38bea0;
+}
+
+.new-todo-btn:focus, .login-btn:focus, .password-btn:focus, .register-btn:focus, .new-todo-btn:focus {
+  outline: 0px;
 }
 
 .register-header {

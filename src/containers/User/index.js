@@ -24,7 +24,7 @@ class User extends Component {
     this.props.loadTodos();
 
     if( localStorage.emailChange ) {
-      toast.success(`Success! Email Changed!`,
+      toast.success(`Success! Email Changed to "RickyRules@gmail.com" haha just kidding!`,
       {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 3000,

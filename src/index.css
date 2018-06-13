@@ -267,6 +267,9 @@ h1 {
 .register-btn:hover, .password-btn:hover {
   background-color: #38bea0; }
 
+.new-todo-btn:focus, .login-btn:focus, .password-btn:focus, .register-btn:focus, .new-todo-btn:focus {
+  outline: 0px; }
+
 .register-header {
   font-size: 30px;
   color: #666;
