@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
-import './index.css';
+
 
 import App from './containers/App';
 import User from './containers/User';
@@ -18,6 +18,8 @@ import EditPassword from './containers/EditPassword';
 import EditEmail from './containers/EditEmail';
 
 import MainHeader from './components/Header.js';
+
+import './index.css';
 
 //---------SERVICEWORKERS-------------------
 import registerServiceWorker from './lib/registerServiceWorker';
