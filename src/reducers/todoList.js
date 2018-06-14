@@ -1,4 +1,4 @@
-import { GET_TODOS, CREATE_TODO, TOGGLE_STATUS, DELETE_TODO } from '../actions/todos';
+import { GET_TODOS, CREATE_TODO, TOGGLE_STATUS, DELETE_TODO } from '../actions/toDos';
 
 const initialState = [];
 

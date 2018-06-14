@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Todo from '../../components/Todo';
 import { connect } from 'react-redux';
-import { loadTodos, toggleStatus, deleteTodo } from '../../actions/todos';
+import { loadTodos, toggleStatus, deleteTodo } from '../../actions/toDos';
 
 class TodoList extends Component {
   constructor(props){

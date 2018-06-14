@@ -20,7 +20,7 @@ class App extends Component{
           If you're just visiting, try using this login info: <br/><br/> username: <b>Ricky</b> <br/>password: <b>Password</b>
         </center>
         <div className="Gif">
-          <img src="./images/To-Do.gif" />
+          <img src="./images/To-Do.gif" alt="gif" />
         </div>
       </div>
 

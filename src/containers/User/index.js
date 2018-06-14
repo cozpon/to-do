@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-import { loadTodos } from '../../actions/todos';
+import { loadTodos } from '../../actions/toDos';
 
 import TodoList from '../TodoList';
-import NewTodoForm from '../NewTodoForm';
+import NewToDoForm from '../NewToDoForm';
 
 class User extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class User extends Component {
           </div>
           <ToastContainer />
           <div className="Todo">
-            <NewTodoForm />
+            <NewToDoForm />
             <center>
               <h1>Things To-Do in the Futura...</h1>
             </center>

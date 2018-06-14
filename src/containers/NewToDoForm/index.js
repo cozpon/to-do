@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../../actions/todos';
+import { addTodo } from '../../actions/toDos';
 
-//import Select from '../../components/Select';
 
 class NewTodoForm extends Component {
   constructor(props) {
