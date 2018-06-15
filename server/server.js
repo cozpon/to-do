@@ -27,7 +27,7 @@ app.use(function (req, res, next) { // allowing front end to talk to back end
 });
 
 app.use(compression()); // compress all responses
-app.use(express.static(path.join(__dirname, '..', '/public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 // enabling json body-parser and encoding
 app.use(bodyParser.urlencoded({ "extended" : false }));
 app.use(bodyParser.json());
