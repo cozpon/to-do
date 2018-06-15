@@ -39,7 +39,6 @@ class Login extends Component {
       });
     }
     localStorage.clear();
-    console.log(this.props, "props user");
   }
 
   handleUsernameInput(evt) {

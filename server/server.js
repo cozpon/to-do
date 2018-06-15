@@ -43,6 +43,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/api', routes);
 
+app.use('*', (request, response) => {
+  response.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+});
+
 app.listen(PORT, () => {
   db.sequelize.sync({ force: true });
   console.log(`Server listening on port: ${PORT}`);

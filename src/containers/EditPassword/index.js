@@ -152,7 +152,6 @@ const mapStateToProps = (state) => {
 
 //maps store dispatch to local props
 const mapDispatchToProps = (dispatch) => {
-  console.log("dispatch props");
   return {
     editPassword: (editUserConfirm) => {
       dispatch(editPassword(editUserConfirm));

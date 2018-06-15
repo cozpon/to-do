@@ -50,7 +50,6 @@ export const loginUser = (userCreds) => {
       });
     })
     .catch((err) => {
-      console.log("err");
       dispatch({
         type: ERROR,
         error: 'invalid user name or password'
@@ -71,7 +70,6 @@ export const loadUser = (id) => {
 };
 
 export const forgotPassword = (userEmail) => {
-  console.log(userEmail);
   return (dispatch) => {
     return Axios.post(forgot, userEmail)
     .then((response) => {
@@ -94,7 +92,6 @@ export const resetPassword = (password) => {
   return (dispatch) => {
     return Axios.put(`${reset}/${password.token}`, password)
     .then((response) => {
-      console.log(response, "RESPONSE DATA");
       dispatch({
         type: RESET_PASS,
         userDetails: response.data
@@ -114,7 +111,6 @@ export const editPassword = (user) => {
   return (dispatch) => {
     return Axios.put(`${editpass}/${user}`, user)
     .then((editedUser) => {
-      console.log(editedUser, "DATA)#@#");
       dispatch({
         type: EDIT_PASSWORD,
         user: editedUser.data
@@ -124,7 +120,6 @@ export const editPassword = (user) => {
 };
 
 export const editEmail = (user) => {
-  console.log(user, "USER");
   return (dispatch) => {
     return Axios.put(`${editemail}/${user}`, user)
     .then((editedUser) => {

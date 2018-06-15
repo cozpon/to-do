@@ -10,7 +10,7 @@ export const DELETE_TODO = 'DELETE_TODO';
 
 export const loadTodos = () => { // creating a GET action that calls onto the GET XHR request
   return (dispatch) => {
-    return Axios.get(`${url}todo`)
+    return Axios.get(`${url}todo/`)
     .then(items => {
       dispatch({
         type: GET_TODOS,
@@ -29,7 +29,7 @@ export const loadTodos = () => { // creating a GET action that calls onto the GE
 
 export const addTodo = (newItem) => { // using the POST XHR request in the 'lib' folder
   return (dispatch) => {
-    return Axios.post(`${url}todo`, newItem)
+    return Axios.post(`${url}todo/`, newItem)
     .then(item => {
       dispatch({
         type: CREATE_TODO, // dispatch is for activating a function call before returning an object
@@ -46,7 +46,6 @@ export const addTodo = (newItem) => { // using the POST XHR request in the 'lib'
 };
 
 export const toggleStatus = (item) => {
-  console.log(item);
   return (dispatch) => {
     return Axios.put(`${url}todo/${item}`, item)
     .then(edited => {

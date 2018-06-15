@@ -122,7 +122,6 @@ class EditEmail extends Component {
 
 // maps store state to local props
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     singleUser : state.singleUser
   };
@@ -130,7 +129,6 @@ const mapStateToProps = (state) => {
 
 //maps store dispatch to local props
 const mapDispatchToProps = (dispatch) => {
-  console.log("dispatch props");
   return {
     editEmail: (editUserConfirm) => {
       dispatch(editEmail(editUserConfirm));
