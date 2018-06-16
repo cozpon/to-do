@@ -50,7 +50,7 @@ class TodoList extends Component {
         {
           this.props.todos
             .map((todo) => {
-              if(todo.is_done === 1){ // if complete, don't show
+              if(todo.is_done === 1 && todo.user_id === Number(localStorage.userId)){ // if complete, don't show
               return (
               <div key={todo.id} className="todo-undone">
                 <div key={todo.id} className="Undone">
@@ -63,7 +63,7 @@ class TodoList extends Component {
                 </div>
               </div>
               );
-            } else if(!todo.deletedAt) {
+            } else if(!todo.deletedAt && todo.user_id === Number(localStorage.userId)) {
               return (
               <div key={todo.id} className="todo-done">
                 <div key={todo.id} className="Done">
@@ -78,8 +78,7 @@ class TodoList extends Component {
               </div>
               );
             } else {
-              return(
-                <div>nothing</div>)
+              return(null)
             }
           })
         }
