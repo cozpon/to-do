@@ -9,7 +9,7 @@ router.route('/')
 .get((req, res) => {
  return User.findAll({
   attributes : {
-    exclude : ['password']
+    exclude : ['password', 'email']
   },
   include : [
     { model : ToDo }

@@ -2,7 +2,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 40%;
   max-width: 800px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 5px 6px 5px 4px rgba(0, 0, 0, 0.1)
 }
@@ -402,3 +402,58 @@ font-family: Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGo
   background-color: #c7415f;
   font-family: Futura;
 }
+
+
+@media only screen and (max-width: 500px) {
+    .unauth-nav-links {
+        font-size: 20px;
+    }
+    .nav-links {
+        font-size: 20px;
+    }
+    #description {
+      font-size: 15px;
+    }
+    h1 {
+      font-size: 18px;
+    }
+    .login-container, .register-container {
+      padding: 0px;
+    }
+    .login-form, .register-form {
+      padding: 30px;
+    }
+    .login-btn, .register-btn, .password-btn, .new-todo-btn {
+      height: 35px;
+      width: 50%;
+      font-size: 12px;
+    }
+    .Input, .Todo-Input {
+      height: 40px;
+      width: 60%;
+    }
+    .login-header, .register-header {
+      font-size: 20px;
+      color: black;
+    }
+    .forgot-password {
+      padding-top: 50px;
+    }
+    .form-header {
+      font-size: 12px;
+    }
+    .Todo-Grid {
+      max-width: 90%;
+    }
+    .todo-done, .todo-undone {
+      padding: 16%;
+      width: 100%;
+      @media only screen and (max-width: 375px) {
+        padding: 13%;
+      }
+      @media only screen and (max-width: 320px) {
+        padding: 20px;
+      }
+    }
+}
+

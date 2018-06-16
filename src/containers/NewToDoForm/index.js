@@ -25,7 +25,6 @@ class NewTodoForm extends Component {
         is_done: 1,
         user_id: localStorage.userId
       };
-      console.log(newTodo, "submit");
     this.props.addTodo(newTodo);
    }
 

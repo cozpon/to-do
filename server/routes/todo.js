@@ -12,7 +12,6 @@ router.route('/')
   return ToDo.findAll({
     where : { deletedAt : null },
     include : [
-      { model: User, as: 'Creator' },
       { model: ToDoStatus, as: 'Status' }
     ],
     order : [[ 'is_done', 'ASC' ]]

@@ -17,9 +17,11 @@ class App extends Component{
       <div className="App">
         <center>
           <h1>You gotta log in to create a To-Do list</h1>
-          If you're just visiting, try using this login info: <br/><br/> username: <b>Ricky</b> <br/>password: <b>Password</b>
+          If you're just visiting, try using this login info: <br/><br/> Username: <b>Ricky</b> <br/>Password: <b>password</b>
         </center>
         <div className="Gif">
+          <br />
+          <br />
           <img src="./images/To-Do.gif" alt="gif" />
         </div>
       </div>
