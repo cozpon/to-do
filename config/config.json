@@ -1,4 +1,11 @@
 {
+  "local": {
+    "username": "ricky",
+   "password": "backyardboi",
+    "database": "todo",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
   "development": {
     "username": "ricky",
    "password": "backyardboi",

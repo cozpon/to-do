@@ -26,6 +26,12 @@ app.use(function (req, res, next) { // allowing front end to talk to back end
   next();
 });
 
+const cors = require('cors');
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
 app.use(compression()); // compress all responses
 app.use(express.static(path.join(__dirname, '..', 'public')));
 // enabling json body-parser and encoding
@@ -48,6 +54,6 @@ app.use('*', (request, response) => {
 });
 
 app.listen(PORT, () => {
-  db.sequelize.sync({ force: true });
+  db.sequelize.sync({ force: false });
   console.log(`Server listening on port: ${PORT}`);
 });

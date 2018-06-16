@@ -3,10 +3,13 @@ import { GET_TODOS, CREATE_TODO, TOGGLE_STATUS, DELETE_TODO } from '../actions/t
 const initialState = [];
 
 const todoList = (state = initialState, action) => {
-  switch (action.type){                   // using a SWITCH CASE allows for different action.types to come in
+  switch (action.type){                // using a SWITCH CASE allows for different action.types to come in
     case GET_TODOS:                    // the GET_TODOS type comes in from ACTIONS folder toDos.js
+    console.log(action.items, "GET");
       return [ ...action.items ];   // it tells us how to treat the case, and what to do with the data from the database
     case CREATE_TODO:
+    console.log(state, "STATE");
+    console.log(action.item, "ACTION ITEM");
       return [ ...state, action.item ];
     case TOGGLE_STATUS:
       let index = state.findIndex((item) => {

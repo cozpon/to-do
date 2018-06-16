@@ -29,8 +29,10 @@ export const loadTodos = () => { // creating a GET action that calls onto the GE
 
 export const addTodo = (newItem) => { // using the POST XHR request in the 'lib' folder
   return (dispatch) => {
+    console.log(newItem, "action");
     return Axios.post(`${url}todo/`, newItem)
     .then(item => {
+      console.log(item, "action pt 2");
       dispatch({
         type: CREATE_TODO, // dispatch is for activating a function call before returning an object
         item: item.data // always always have to include "type" and then a state or some kind of change

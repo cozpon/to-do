@@ -77,6 +77,9 @@ class TodoList extends Component {
                 </div>
               </div>
               );
+            } else {
+              return(
+                <div>nothing</div>)
             }
           })
         }

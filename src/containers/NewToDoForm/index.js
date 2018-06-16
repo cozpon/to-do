@@ -25,6 +25,7 @@ class NewTodoForm extends Component {
         is_done: 1,
         user_id: localStorage.userId
       };
+      console.log(newTodo, "submit");
     this.props.addTodo(newTodo);
    }
 
@@ -73,6 +74,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addTodo: (item) => {
+      console.log(item, "dispatch");
       dispatch(addTodo(item))
     }
   }
