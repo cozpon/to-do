@@ -1,5 +1,5 @@
 # Notes For The Futura
-## A React built To-Do list utilizing the Futura font
+## A React built To-Do list utilizing the Futura font for the pun.
 ## Getting Started:
 
 ### Clone to your local computer:
@@ -35,6 +35,6 @@ http://localhost:8080/
 - Node.js
 - Express
 - PostgreSQL
-- SUITcss
+- SASS
 
 Using Futura font so I could make the pun.
