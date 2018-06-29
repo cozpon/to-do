@@ -26,9 +26,9 @@ app.use(function (req, res, next) { // allowing front end to talk to back end
   next();
 });
 
-const cors = require('cors');
+const cors = require('cors'); // allows CORS
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'http://localhost:3000', // from your local server
   credentials: true
 }));
 
@@ -51,7 +51,7 @@ app.use('/api', routes);
 
 app.use('*', (request, response) => {
   response.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
-});
+}); // tells where to serve from
 
 app.listen(PORT, () => {
   db.sequelize.sync({ force: false });

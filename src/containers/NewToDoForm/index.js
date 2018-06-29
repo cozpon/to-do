@@ -73,7 +73,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addTodo: (item) => {
-      console.log(item, "dispatch");
       dispatch(addTodo(item))
     }
   }

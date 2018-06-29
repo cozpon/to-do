@@ -25,6 +25,17 @@ router.route('/')
   });
 })
 
+// router.route('/')
+// .get((req, res) => {
+//   ToDo.findAll(toDo)
+//   .then(toDo => {
+//     return res.json(toDo);
+//   })
+//   .catch(err => {
+//     return res.json(err);
+//   });
+// })
+
 // POST A NEW TODO ITEM
 
 .post((req, res) => {

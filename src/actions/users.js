@@ -10,30 +10,18 @@ const reset = `${url}auth/reset`;
 const editpass = `${url}auth/editpass`;
 const editemail = `${url}auth/editemail`;
 
-export const REGISTER_USER = 'REGISTER_USER';
-export const LOGIN_USER = 'LOGIN_USER';
-export const LOGOUT_USER = 'LOGOUT_USER';
-export const FORGOT_PASS = 'FORGOT_PASS';
-export const RESET_PASS = 'RESET_PASS';
-export const EDIT_PASSWORD = 'EDIT_PASSWORD';
-export const EDIT_EMAIL = 'EDIT_EMAIL';
-export const LOAD_USER = 'LOAD_USER';
-export const ERROR = 'ERROR';
-
-
-
 export const registerUser = (registerCreds) => {
   return (dispatch) => {
     return Axios.post(register, registerCreds)
     .then(response => {
         dispatch({
-          type: REGISTER_USER,
+          type: 'REGISTER_USER',
           response: response.data
        });
     })
     .catch(err => {
       dispatch({
-        type: ERROR,
+        type: 'ERROR',
         error: err
       });
     });
@@ -45,13 +33,13 @@ export const loginUser = (userCreds) => {
     return Axios.post(login, userCreds)
     .then((response) => {
       dispatch({
-        type: LOGIN_USER,
+        type: 'LOGIN_USER',
         userDetails: response.data
       });
     })
     .catch((err) => {
       dispatch({
-        type: ERROR,
+        type: 'ERROR',
         error: 'invalid user name or password'
       });
     });
@@ -62,7 +50,7 @@ export const loadUser = (id) => {
   return function(dispatch) {
     return Axios.get(`${url}users/${id}`).then((user) => {
       dispatch({
-        type: LOAD_USER,
+        type: 'LOAD_USER',
         user: user.data
       });
     });
@@ -74,13 +62,13 @@ export const forgotPassword = (userEmail) => {
     return Axios.post(forgot, userEmail)
     .then((response) => {
       dispatch({
-        type: FORGOT_PASS,
+        type: 'FORGOT_PASS',
         userDetails: response.data
       });
     })
     .catch((err) => {
       dispatch({
-        type: ERROR,
+        type: 'ERROR',
         error: 'something went wrong, please try again!'
       });
     });
@@ -93,13 +81,13 @@ export const resetPassword = (password) => {
     return Axios.put(`${reset}/${password.token}`, password)
     .then((response) => {
       dispatch({
-        type: RESET_PASS,
+        type: 'RESET_PASS',
         userDetails: response.data
       });
     })
     .catch((err) => {
       dispatch({
-        type: ERROR,
+        type: 'ERROR',
         error: 'something went wrong, please try again!'
       });
     });
@@ -112,7 +100,7 @@ export const editPassword = (user) => {
     return Axios.put(`${editpass}/${user}`, user)
     .then((editedUser) => {
       dispatch({
-        type: EDIT_PASSWORD,
+        type: 'EDIT_PASSWORD',
         user: editedUser.data
       });
     });
@@ -124,7 +112,7 @@ export const editEmail = (user) => {
     return Axios.put(`${editemail}/${user}`, user)
     .then((editedUser) => {
       dispatch({
-        type: EDIT_EMAIL,
+        type: 'EDIT_EMAIL',
         user: editedUser.data
       });
     });
@@ -137,7 +125,7 @@ export const logoutUser = () => {
     .then((response) => {
       if (response.data.success) {
         dispatch({
-          type: LOGOUT_USER,
+          type: 'LOGOUT_USER',
           success: response.data.success
         });
       }

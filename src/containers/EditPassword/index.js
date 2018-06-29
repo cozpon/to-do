@@ -13,12 +13,13 @@ class EditPassword extends Component {
       id : '',
       email : '',
       password : '',
+      password2 : '',
       oldpassword : '',
       redirect : false // set initial state to false
     };
     this.handleOldPasswordInput = this.handleOldPasswordInput.bind(this);
-
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleReEnterPasswordInput = this.handleReEnterPasswordInput.bind(this);
     this.handlePasswordInput = this.handlePasswordInput.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleEmailInput = this.handleEmailInput.bind(this);
@@ -28,13 +29,12 @@ class EditPassword extends Component {
     evt.preventDefault();
     let newPassword = {
       oldpassword : this.state.oldpassword,
-      password : this.state.password,
+      password : this.state.password2,
       id : this.props.match.params.id
     };
-
     this.props.editPassword(newPassword);
     this.setState({
-
+      password2: '',
       password : '',
       oldpassword : '',
       redirect : true
@@ -46,6 +46,14 @@ class EditPassword extends Component {
     {
       password : evt.target.value,
     });
+  }
+  handleReEnterPasswordInput(evt) {
+    if(this.state.password === evt.target.value){
+      this.setState(
+      {
+        password2 : evt.target.value,
+      });
+    }
   }
 
   handleOldPasswordInput(evt) {
@@ -119,11 +127,11 @@ class EditPassword extends Component {
           <div>
             <input
               className="Input"
-              name="password"
+              name="reenterpassword"
               type="password"
               placeholder="re-enter new password"
-              defaultValue={this.state.password}
-              onChange={this.handlePasswordInput} />
+              defaultValue={this.state.password2}
+              onChange={this.handleReEnterPasswordInput} />
           </div>
             <button
               className="password-btn"

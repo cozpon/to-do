@@ -25,7 +25,6 @@ const router = express.Router();
 //LogIN an authenticated user
 router.post('/login',
   passport.authenticate('local'), (req, res) => {
-    console.log(res.user);
   return res.json({
     id : req.user.id,
     username : req.user.username,
@@ -37,8 +36,7 @@ router.post('/login',
 //LogOUT a user
 router.get('/logout', (req, res) => {
   req.logout(); //fire logout request
-  console.log("user logged out");
-  res.sendStatus(200);
+  res.sendStatus(200); // return successful status
 });
 
 

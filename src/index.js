@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
 
@@ -25,12 +25,13 @@ import './index.css';
 import registerServiceWorker from './lib/registerServiceWorker';
 
 // ------STORE--------------------------
+
 const store = createStore(
   reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // allows redux browser dev tools
   applyMiddleware(thunk)
 );
-
+console.log(store.getState());
 // Using React-Router-Dom for app expansion, to allow routing between (future) containers
 ReactDOM.hydrate(
   <Provider store={store}>
@@ -39,6 +40,7 @@ ReactDOM.hydrate(
         <header id="global-nav-header">
           <MainHeader />
         </header>
+        <Switch>
           <Route exact path="/" component={App} />
           <Route path="/login" component={LogIN} />
           <Route path="/logout" component={LogOUT} />
@@ -48,6 +50,7 @@ ReactDOM.hydrate(
           <Route path="/editpass/:id" component={EditPassword} />
           <Route path="/editemail/:id" component={EditEmail} />
           <Route path="/reset/:token" component={Reset}/>
+        </Switch>
       </div>
     </Router>
   </Provider>,

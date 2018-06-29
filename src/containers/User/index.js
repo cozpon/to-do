@@ -37,8 +37,7 @@ class User extends Component {
         autoClose: 5000,
       });
     }
-  }
-  componentWillMount(){
+
     setTimeout(function() {
       localStorage.removeItem('emailChange');
       localStorage.removeItem('passwordChange');
@@ -80,20 +79,19 @@ class User extends Component {
 }
 
 // sets store state on local props
-const mapStateToProps = state => {
-  return {
-    singleUser : state.singleUser,
-    todos : state.todoList // makes it this.props.ToDos
-  }
-}
+const mapStateToProps = state => ({
+  singleUser : state.singleUser,
+  todos : state.todoList // makes it this.props.ToDos
+}); // Dan Abramov says if the arrow function only contains a single return statement (an object)
+    // you can remove the return in place for parenthesis to make it an object expression
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadTodos: () => {
-      dispatch(loadTodos());
-    }
+const mapDispatchToProps = dispatch => ({
+  loadTodos() {
+  // Dan says you can also remove the arrow function
+  // to use the concise method notation in dispatchToProps
+    dispatch(loadTodos());
   }
-}
+});
 
 export default connect(
   mapStateToProps,

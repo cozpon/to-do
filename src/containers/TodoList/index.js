@@ -49,7 +49,7 @@ class TodoList extends Component {
         <form onClick={this.handleStatusChange} onSubmit={this.handleSubmit}>
         {
           this.props.todos
-            .map((todo) => {
+            .map(todo => {
               if(todo.is_done === 1 && todo.user_id === Number(localStorage.userId)){ // if complete, don't show
               return (
               <div key={todo.id} className="todo-undone">

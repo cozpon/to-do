@@ -46,7 +46,7 @@ class EditEmail extends Component {
     });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     localStorage.removeItem('emailChange');
   }
 
