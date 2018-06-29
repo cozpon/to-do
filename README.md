@@ -5,7 +5,7 @@
 ### Clone to your local computer:
 in a terminal window run:
 ```
-git clone https://github.com/cozpon/to-do
+git clone https://github.com/cozpon/todo.git
 ```
 cd into 'to-do' directory and run:
 
